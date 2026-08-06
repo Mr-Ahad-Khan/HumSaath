@@ -33,6 +33,17 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// A friendly response for the backend URL itself. The frontend is hosted
+// separately, so the root is an API landing response rather than a web page.
+app.get('/', (req, res) => {
+  res.json({
+    success: true,
+    message: 'HumSaath API is running',
+    health: '/api/health',
+    events: '/api/events'
+  });
+});
+
 app.use('/api/events', require('./routes/events'));
 
 // Health check
