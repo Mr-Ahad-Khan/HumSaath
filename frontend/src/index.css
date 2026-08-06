@@ -1,0 +1,304 @@
+/* ============================================================
+   HumSaath — Design System
+   Festive Indian wedding palette: maroon, gold, cream, emerald
+   ============================================================ */
+
+:root {
+  /* Color ramps */
+  --maroon-900: #4A0F17;
+  --maroon-800: #5E1421;
+  --maroon-700: #7A1F2B;
+  --maroon-600: #9A2B3A;
+  --maroon-500: #B83A4C;
+
+  --gold-600: #A67F2E;
+  --gold-500: #C9A24B;
+  --gold-400: #D9B968;
+  --gold-300: #E8D094;
+  --gold-200: #F2E4BC;
+
+  --cream-100: #FFF8ED;
+  --cream-200: #FDF1E0;
+  --cream-300: #F8E6CB;
+
+  --emerald-600: #1B6E47;
+  --emerald-500: #238956;
+  --emerald-400: #2D9E66;
+
+  --ink-900: #2A1A14;
+  --ink-700: #4A3530;
+  --ink-500: #6B5750;
+  --ink-300: #9A8B85;
+
+  --error-600: #B82828;
+  --error-100: #FCEAEA;
+
+  /* Semantic */
+  --color-primary: var(--maroon-700);
+  --color-primary-dark: var(--maroon-800);
+  --color-accent: var(--gold-500);
+  --color-accent-light: var(--gold-300);
+  --color-bg: var(--cream-100);
+  --color-bg-alt: var(--cream-200);
+  --color-surface: #ffffff;
+  --color-text: var(--ink-900);
+  --color-text-muted: var(--ink-500);
+  --color-border: var(--gold-300);
+
+  /* Typography */
+  --font-display: 'Marcellus', 'Cormorant Garamond', Georgia, serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Mukta', -apple-system, 'Segoe UI', sans-serif;
+
+  /* Spacing — 8px system */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 2.5rem;
+  --space-6: 3rem;
+  --space-7: 4rem;
+  --space-8: 5rem;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 4px rgba(74, 15, 23, 0.08);
+  --shadow-md: 0 4px 16px rgba(74, 15, 23, 0.10);
+  --shadow-lg: 0 12px 40px rgba(74, 15, 23, 0.14);
+
+  /* Transitions */
+  --transition: 0.3s ease;
+
+  --container-max: 1180px;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--maroon-800);
+}
+
+h1 { font-size: clamp(2.2rem, 6vw, 3.8rem); }
+h2 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); }
+h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
+
+p { line-height: 1.65; }
+
+a {
+  color: var(--maroon-700);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover { color: var(--gold-600); }
+
+img { max-width: 100%; display: block; }
+
+/* ---- Layout helpers ---- */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .container { padding: 0 var(--space-4); }
+}
+
+.section { padding: var(--space-7) 0; }
+
+.section--alt {
+  background-color: var(--color-bg-alt);
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.75rem 1.75rem;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.btn--primary {
+  background: var(--maroon-700);
+  color: var(--cream-100);
+  box-shadow: var(--shadow-md);
+}
+.btn--primary:hover {
+  background: var(--maroon-800);
+  color: var(--gold-300);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn--gold {
+  background: var(--gold-500);
+  color: var(--maroon-900);
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+}
+.btn--gold:hover {
+  background: var(--gold-400);
+  transform: translateY(-1px);
+}
+
+.btn--emerald {
+  background: var(--emerald-500);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+.btn--emerald:hover {
+  background: var(--emerald-600);
+  transform: translateY(-1px);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--maroon-700);
+  border: 1.5px solid var(--gold-500);
+}
+.btn--outline:hover {
+  background: var(--gold-200);
+  color: var(--maroon-800);
+}
+
+.btn--lg {
+  font-size: 1.1rem;
+  padding: 1rem 2.25rem;
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---- Forms ---- */
+.form-group {
+  margin-bottom: var(--space-3);
+}
+
+.form-label {
+  display: block;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--ink-700);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.01em;
+}
+
+.form-label .req { color: var(--maroon-500); }
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.75rem 0.9rem;
+  border: 1.5px solid var(--gold-300);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--gold-500);
+  box-shadow: 0 0 0 3px rgba(201, 162, 75, 0.15);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-error {
+  color: var(--error-600);
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+}
+
+.form-hint {
+  color: var(--ink-300);
+  font-size: 0.82rem;
+  margin-top: 0.35rem;
+}
+
+/* ---- Utility ---- */
+.text-center { text-align: center; }
+.text-gold { color: var(--gold-600); }
+.text-muted { color: var(--color-text-muted); }
+.mt-2 { margin-top: var(--space-2); }
+.mt-3 { margin-top: var(--space-3); }
+.mt-4 { margin-top: var(--space-4); }
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-3 { margin-bottom: var(--space-3); }
+
+/* ---- Animation ---- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--error-600);
+  animation: pulse-soft 1.5s ease-in-out infinite;
+  margin-right: 0.4em;
+}
