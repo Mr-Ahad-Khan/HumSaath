@@ -64,4 +64,10 @@ const startServer = (port) => {
   });
 };
 
-startServer(basePort);
+// Vercel imports this Express app from api/[...path].js. Keep the listener
+// only for local development and other long-running Node hosts.
+if (require.main === module) {
+  startServer(basePort);
+}
+
+module.exports = app;
