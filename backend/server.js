@@ -14,12 +14,13 @@ const allowedOrigins = [
   'https://hum-saath-eta.vercel.app',
   process.env.CLIENT_URL
 ].filter(Boolean);
+const vercelPreviewOrigin = /^https:\/\/hum-saath-[a-z0-9-]+\.vercel\.app$/i;
 
 // Middleware
 app.use(
   cors({
     origin(origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (!origin || allowedOrigins.includes(origin) || vercelPreviewOrigin.test(origin)) {
         callback(null, true);
         return;
       }
