@@ -5,6 +5,7 @@ import { generateSlug, jitsiRoomFromSlug } from '../lib/slug.js'
 import { SectionDivider } from '../components/Motifs.jsx'
 
 const EVENT_TYPES = ['Mehendi', 'Sangeet', 'Nikah', 'Walima', 'Baraat', 'Rukhsati']
+const publicSiteUrl = import.meta.env.VITE_PUBLIC_SITE_URL?.replace(/\/$/, '')
 
 const initialForm = {
   event_name: '',
@@ -79,7 +80,9 @@ export default function CreateEventPage() {
   }
 
   if (createdEvent) {
-    const shareUrl = `${window.location.origin}/event/${createdEvent.slug}`
+    // Preview deployments can be access-protected. Always prefer the public,
+    // production site URL for links sent to guests.
+    const shareUrl = `${publicSiteUrl || window.location.origin}/event/${createdEvent.slug}`
     return (
       <div className="create-page">
         <div className="container">
